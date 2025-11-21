@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "title": "Blockchain Content Strategy",
+      "company": "Pure Software",
+      "type": "Content Analyst",
+      "description": "Developed compelling narratives and visual storytelling to simplify complex blockchain concepts.",
+      "results": [
+        "30-40% increase in organic impressions",
+        "50% faster content turnaround",
+        "Improved readability & semantic depth"
+      ],
+      "tools": ["ChatGPT", "Notion AI", "SurferSEO", "Frase", "Jasper AI"],
+      "size": "large",
+      "link": "#"
+    },
+    {
+      "title": "B2B LinkedIn Content",
+      "company": "Growth Asian",
+      "type": "Content & Engagement Manager",
+      "description": "Built strategic posting calendars and repurposed long-form content for LinkedIn optimization.",
+      "results": [
+        "Increased engagement metrics",
+        "On-ground event coverage",
+        "Platform-native formats"
+      ],
+      "tools": ["LinkedIn Analytics", "Content Calendar", "B2B Strategy"],
+      "size": "medium",
+      "link": "#"
+    },
+    {
+      "title": "EdTech SEO Content",
+      "company": "upGrad",
+      "type": "SEO Associate",
+      "description": "Generated articles achieving 1.56K+ views through SEO optimization and social distribution.",
+      "results": [
+        "1.56K+ article views",
+        "Long-form content & landing pages",
+        "Cross-functional collaboration"
+      ],
+      "tools": ["ChatGPT", "Jasper AI", "HubSpot AI", "Gemini", "Grok", "Canva AI"],
+      "size": "medium",
+      "link": "#"
+    }
+  ]
+}

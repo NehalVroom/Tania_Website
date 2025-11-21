@@ -1,0 +1,51 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "content"
+    label: "Content"
+    folder: "src/content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Date", name: "date", widget: "datetime" }
+
+  - name: "settings"
+    label: "Settings"
+    files:
+      - name: "profile"
+        label: "Profile Settings"
+        file: "src/content/profile.json"
+        fields:
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "About", name: "about", widget: "markdown" }
+          - { label: "LinkedIn", name: "linkedin", widget: "string" }
+          - { label: "Behance", name: "behance", widget: "string" }
+          - { label: "Blog", name: "blog", widget: "string" }
+
+      - name: "work"
+        label: "Work Projects"
+        file: "src/content/work.json"
+        fields:
+          - label: "Projects"
+            name: "projects"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Company", name: "company", widget: "string" }
+              - { label: "Type", name: "type", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Results", name: "results", widget: "list" }
+              - { label: "Tools", name: "tools", widget: "list" }
+              - { label: "Size", name: "size", widget: "select", options: ["small", "medium", "large"] }
+              - { label: "Link", name: "link", widget: "string" }
