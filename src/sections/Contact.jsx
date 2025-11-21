@@ -25,12 +25,30 @@ const Contact = () => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
+    // Encode form data for Netlify
+    const encode = (data) => {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+        .join("&")
+    }
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...formData
+        })
+      })
+
       setIsSubmitting(false)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', budget: '', message: '' })
-    }, 1500)
+    } catch (error) {
+      setIsSubmitting(false)
+      setSubmitStatus('error')
+    }
   }
 
   const contactInfo = [
@@ -229,6 +247,17 @@ const Contact = () => {
                   className="mt-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg text-center"
                 >
                   Thanks for reaching out! I'll get back to you soon.
+                </motion.div>
+              )}
+
+              {/* Error Message */}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-center"
+                >
+                  Oops! Something went wrong. Please try again or email me directly.
                 </motion.div>
               )}
             </form>
