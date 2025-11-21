@@ -9,7 +9,3 @@
 
 [build.environment]
   NODE_VERSION = "18"
-
-# Forms
-[[plugins]]
-  package = "@netlify/plugin-forms"
