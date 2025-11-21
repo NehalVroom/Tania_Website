@@ -49,12 +49,15 @@ const Hero = () => {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-50 to-white px-6">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white px-6">
+      {/* Animated grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+
       {/* Floating geometric shapes */}
       {shapes.map((shape, index) => (
         <motion.div
           key={index}
-          className="absolute bg-accent/10 rounded-full blur-xl animate-morph"
+          className="absolute bg-accent/5 rounded-full blur-2xl"
           style={{
             width: shape.size,
             height: shape.size,
@@ -62,11 +65,12 @@ const Hero = () => {
             top: shape.top,
           }}
           animate={{
-            y: [0, -30, 0],
-            x: [0, 15, 0],
+            y: [0, -40, 0],
+            x: [0, 20, 0],
+            scale: [1, 1.1, 1],
           }}
           transition={{
-            duration: 8,
+            duration: 10,
             delay: shape.delay,
             repeat: Infinity,
             ease: 'easeInOut',

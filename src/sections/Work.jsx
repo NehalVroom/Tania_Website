@@ -1,8 +1,15 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import Section from '../components/Section'
 import { ExternalLink, TrendingUp } from 'lucide-react'
 
 const Work = () => {
+  const containerRef = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  })
+
   const projects = [
     {
       title: 'Blockchain Content Strategy',
@@ -15,7 +22,6 @@ const Work = () => {
         'Improved readability & semantic depth',
       ],
       tools: ['ChatGPT', 'Notion AI', 'SurferSEO', 'Frase', 'Jasper AI'],
-      size: 'large', // For bento grid
       link: '#',
     },
     {
@@ -29,7 +35,6 @@ const Work = () => {
         'Platform-native formats',
       ],
       tools: ['LinkedIn Analytics', 'Content Calendar', 'B2B Strategy'],
-      size: 'medium',
       link: '#',
     },
     {
@@ -43,7 +48,6 @@ const Work = () => {
         'Cross-functional collaboration',
       ],
       tools: ['ChatGPT', 'Jasper AI', 'HubSpot AI', 'Gemini', 'Grok', 'Canva AI'],
-      size: 'medium',
       link: '#',
     },
     {
@@ -57,7 +61,6 @@ const Work = () => {
         'Social media campaigns',
       ],
       tools: ['Canva', 'Creative Writing'],
-      size: 'small',
       link: '#',
     },
   ]
@@ -85,31 +88,33 @@ const Work = () => {
         </motion.p>
       </div>
 
-      {/* Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map((project, index) => {
-          const gridClass = {
-            large: 'md:col-span-2 lg:row-span-2',
-            medium: 'md:col-span-1',
-            small: 'md:col-span-1',
-          }
+      {/* Vertical Scrolling Cards */}
+      <div ref={containerRef} className="relative">
+        <div className="space-y-8 max-w-4xl mx-auto">
+          {projects.map((project, index) => {
+            // Create parallax effect - each card moves at different speed
+            const y = useTransform(
+              scrollYProgress,
+              [0, 1],
+              [100 * (index + 1), -100 * (index + 1)]
+            )
 
-          return (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`${gridClass[project.size]}`}
-            >
+            return (
               <motion.div
-                className="bg-white rounded-2xl p-8 border border-gray-200 h-full flex flex-col group cursor-pointer hover:border-accent transition-colors"
-                whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                key={index}
+                style={{ y }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                className={index % 2 === 0 ? "ml-0 md:ml-12" : "mr-0 md:mr-12"}
               >
-                {/* Header */}
-                <div className="mb-6">
-                  <div className="flex items-start justify-between mb-3">
+                <motion.div
+                  className="bg-white rounded-2xl p-8 border border-gray-200 group cursor-pointer hover:border-accent transition-colors"
+                  whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                >
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="font-display text-2xl md:text-3xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors">
                         {project.title}
@@ -128,29 +133,28 @@ const Work = () => {
                     </motion.a>
                   </div>
 
-                  <p className="text-gray-700 leading-relaxed">
+                  {/* Description */}
+                  <p className="text-gray-700 leading-relaxed mb-6">
                     {project.description}
                   </p>
-                </div>
 
-                {/* Results */}
-                <div className="mb-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <TrendingUp className="text-accent" size={20} />
-                    <h4 className="font-semibold text-gray-900">Key Results</h4>
+                  {/* Results */}
+                  <div className="mb-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <TrendingUp className="text-accent" size={20} />
+                      <h4 className="font-semibold text-gray-900">Key Results</h4>
+                    </div>
+                    <ul className="space-y-2">
+                      {project.results.map((result, resultIndex) => (
+                        <li key={resultIndex} className="text-gray-600 text-sm flex items-start">
+                          <span className="text-accent mr-2">▸</span>
+                          {result}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2">
-                    {project.results.map((result, resultIndex) => (
-                      <li key={resultIndex} className="text-gray-600 text-sm flex items-start">
-                        <span className="text-accent mr-2">▸</span>
-                        {result}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
 
-                {/* Tools */}
-                <div className="mt-auto">
+                  {/* Tools */}
                   <div className="flex flex-wrap gap-2">
                     {project.tools.map((tool, toolIndex) => (
                       <span
@@ -161,11 +165,11 @@ const Work = () => {
                       </span>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
 
       {/* Portfolio Links */}
