@@ -9,8 +9,8 @@ const Hero = () => {
 
   const descriptors = [
     'Content Strategist',
-    'AI Content Expert',
     'SEO Specialist',
+    'Digital Storyteller',
     'Engagement Manager',
   ]
 
@@ -136,8 +136,8 @@ const Hero = () => {
           transition={{ delay: 1.3, duration: 0.6 }}
           className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto text-balance"
         >
-          I speak fluent AI and turn complex ideas into content that actually performs.
-          2+ years of driving organic reach through SEO, analytics, and AI-powered strategy.
+          Turning complex ideas into content that connects and performs.
+          2+ years driving organic reach through strategic storytelling, SEO, and analytics.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -158,16 +158,16 @@ const Hero = () => {
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: 0.4 }}
           transition={{ delay: 2, duration: 0.6 }}
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-12 left-1/2 transform -translate-x-1/2 hidden md:block"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             className="text-gray-400"
           >
-            <ArrowDown size={32} />
+            <ArrowDown size={24} />
           </motion.div>
         </motion.div>
       </div>

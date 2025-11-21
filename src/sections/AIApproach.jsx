@@ -18,17 +18,17 @@ const AIApproach = () => {
     {
       icon: Brain,
       title: 'Strategic Thinking',
-      description: 'Human creativity defines the narrative, audience, and goals',
+      description: 'Define the narrative, audience, and goals with creative insight',
     },
     {
       icon: Sparkles,
-      title: 'AI Ideation',
-      description: 'AI tools generate data-driven topic clusters and content angles',
+      title: 'Smart Ideation',
+      description: 'Generate data-driven topic clusters and content angles efficiently',
     },
     {
       icon: Zap,
-      title: 'Smart Execution',
-      description: '50% faster turnaround while maintaining quality and tone',
+      title: 'Efficient Execution',
+      description: '50% faster turnaround while maintaining quality and brand voice',
     },
     {
       icon: TrendingUp,
@@ -46,8 +46,8 @@ const AIApproach = () => {
           viewport={{ once: true }}
           className="inline-flex items-center gap-2 bg-accent/10 text-accent px-4 py-2 rounded-full mb-6"
         >
-          <Bot size={20} />
-          <span className="font-semibold text-sm uppercase tracking-wider">AI-Powered Approach</span>
+          <Zap size={20} />
+          <span className="font-semibold text-sm uppercase tracking-wider">My Approach</span>
         </motion.div>
 
         <motion.h2
@@ -57,9 +57,9 @@ const AIApproach = () => {
           transition={{ delay: 0.1 }}
           className="font-display text-5xl md:text-6xl font-bold mb-6 text-gray-900"
         >
-          Human Creativity{' '}
+          Strategy Meets{' '}
           <span className="text-accent relative">
-            + AI Efficiency
+            Execution
             <motion.div
               className="absolute -bottom-2 left-0 right-0 h-3 bg-accent/20 -z-10"
               initial={{ scaleX: 0 }}
@@ -77,8 +77,7 @@ const AIApproach = () => {
           transition={{ delay: 0.2 }}
           className="text-xl text-gray-600 max-w-3xl mx-auto"
         >
-          I don't just use AI tools—I master them. Here's how I blend cutting-edge technology
-          with strategic thinking to create content that performs.
+          Combining modern tools with strategic thinking to create content that drives real results.
         </motion.p>
       </div>
 
@@ -91,7 +90,7 @@ const AIApproach = () => {
         transition={{ delay: 0.3 }}
       >
         <h3 className="text-center text-gray-500 uppercase tracking-wider text-sm mb-8">
-          Tools I Master
+          Tools I Use
         </h3>
         <div className="flex flex-wrap justify-center gap-4">
           {aiTools.map((tool, index) => (
@@ -179,8 +178,8 @@ const AIApproach = () => {
           The Result? Content That Actually Performs
         </h3>
         <p className="text-lg text-white/90 max-w-2xl mx-auto">
-          By combining AI tools with strategic thinking, I deliver high-quality content
-          faster while driving measurable growth and engagement.
+          By combining modern tools with strategic thinking, I deliver high-quality content
+          efficiently while driving measurable growth and engagement.
         </p>
       </motion.div>
     </Section>
