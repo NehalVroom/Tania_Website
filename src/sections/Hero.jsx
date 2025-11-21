@@ -1,177 +1,154 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { ArrowDown, Sparkles } from 'lucide-react'
+import { ArrowDown } from 'lucide-react'
 import Button from '../components/Button'
 
 const Hero = () => {
-  const [displayedText, setDisplayedText] = useState('')
-  const fullName = 'Tania'
-
-  const descriptors = [
-    'Content Strategist',
-    'SEO Specialist',
-    'Digital Storyteller',
-    'Engagement Manager',
+  const wittyTaglines = [
+    'Stories that stick, strategies that scale',
+    'Where analytics meet artistry',
+    'Crafting content with character',
+    'Data-driven. Story-led. Results-focused.',
   ]
 
-  const [currentDescriptor, setCurrentDescriptor] = useState(0)
+  const [currentTagline, setCurrentTagline] = useState(0)
 
-  // Typewriter effect for name
+  // Rotate witty taglines
   useEffect(() => {
-    let index = 0
     const interval = setInterval(() => {
-      if (index <= fullName.length) {
-        setDisplayedText(fullName.slice(0, index))
-        index++
-      } else {
-        clearInterval(interval)
-      }
-    }, 150)
+      setCurrentTagline((prev) => (prev + 1) % wittyTaglines.length)
+    }, 4000)
 
     return () => clearInterval(interval)
   }, [])
-
-  // Rotate descriptors
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentDescriptor((prev) => (prev + 1) % descriptors.length)
-    }, 3000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  // Floating shapes
-  const shapes = [
-    { size: 80, left: '10%', top: '20%', delay: 0 },
-    { size: 60, left: '85%', top: '15%', delay: 0.5 },
-    { size: 100, left: '75%', top: '70%', delay: 1 },
-    { size: 70, left: '15%', top: '80%', delay: 1.5 },
-  ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white px-6">
-      {/* Animated grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-warm-cream px-6">
+      {/* Subtle Indian-inspired pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4735E' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v6h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      />
 
-      {/* Floating geometric shapes */}
-      {shapes.map((shape, index) => (
-        <motion.div
-          key={index}
-          className="absolute bg-accent/5 rounded-full blur-2xl"
-          style={{
-            width: shape.size,
-            height: shape.size,
-            left: shape.left,
-            top: shape.top,
-          }}
-          animate={{
-            y: [0, -40, 0],
-            x: [0, 20, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 10,
-            delay: shape.delay,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
+      {/* Warm gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-warm-cream via-warm-cream/50 to-warm-beige/30" />
+
+      {/* Floating warm elements */}
+      <motion.div
+        className="absolute top-20 right-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl"
+        animate={{
+          y: [0, -30, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+      <motion.div
+        className="absolute bottom-20 left-20 w-80 h-80 bg-warm-taupe/10 rounded-full blur-3xl"
+        animate={{
+          y: [0, 30, 0],
+          scale: [1, 1.15, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
 
       {/* Main content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto">
-        {/* Sparkle icon */}
+        {/* Cinematic name reveal */}
         <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="flex justify-center mb-6"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          className="mb-8"
         >
+          <h1 className="font-display text-8xl md:text-9xl font-bold text-charcoal mb-4 tracking-tight">
+            Tania
+          </h1>
           <motion.div
-            animate={{ rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <Sparkles className="text-accent" size={40} />
-          </motion.div>
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
+            className="h-1 w-32 bg-accent mx-auto rounded-full"
+          />
         </motion.div>
 
-        {/* Name with typewriter effect */}
-        <motion.h1
-          className="font-display text-7xl md:text-9xl font-bold mb-6 text-gray-900"
+        {/* Role */}
+        <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ delay: 0.8, duration: 1 }}
+          className="font-accent text-xl md:text-2xl text-charcoal/70 mb-6 tracking-wide uppercase"
         >
-          {displayedText}
-          <motion.span
-            animate={{ opacity: [1, 0] }}
-            transition={{ duration: 0.8, repeat: Infinity }}
-            className="inline-block w-1 h-20 md:h-32 bg-accent ml-2 align-middle"
-          />
-        </motion.h1>
+          Content & Engagement Manager
+        </motion.h2>
 
-        {/* Rotating tagline */}
+        {/* Witty rotating tagline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="mb-8 h-16 flex items-center justify-center"
+          transition={{ delay: 1.2, duration: 1 }}
+          className="mb-12 h-12 flex items-center justify-center"
         >
-          <h2 className="text-2xl md:text-3xl text-gray-700 font-medium">
-            <span className="text-gray-900">Content & Engagement Manager</span>
-            <br />
-            <motion.span
-              key={currentDescriptor}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="text-accent font-semibold inline-block"
-            >
-              {descriptors[currentDescriptor]}
-            </motion.span>
-          </h2>
+          <motion.p
+            key={currentTagline}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.8 }}
+            className="font-accent text-lg md:text-xl text-accent font-medium italic"
+          >
+            {wittyTaglines[currentTagline]}
+          </motion.p>
         </motion.div>
 
         {/* Description */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3, duration: 0.6 }}
-          className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto text-balance"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.6, duration: 1 }}
+          className="text-base md:text-lg text-charcoal/60 mb-12 max-w-2xl mx-auto leading-relaxed"
         >
-          Turning complex ideas into content that connects and performs.
-          2+ years driving organic reach through strategic storytelling, SEO, and analytics.
+          2+ years turning complex ideas into content that connects and performs.
+          From strategic storytelling to SEO-driven results, I craft narratives that resonate.
         </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.6, duration: 0.6 }}
+          transition={{ delay: 2, duration: 1 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Button variant="primary" href="#work">
-            See My Work
+            View My Work
           </Button>
           <Button variant="outline" href="#contact">
-            Let's Talk
+            Let's Connect
           </Button>
         </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.4 }}
-          transition={{ delay: 2, duration: 0.6 }}
+          animate={{ opacity: 0.3 }}
+          transition={{ delay: 2.5, duration: 1 }}
           className="absolute bottom-12 left-1/2 transform -translate-x-1/2 hidden md:block"
         >
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="text-gray-400"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="text-charcoal/40"
           >
-            <ArrowDown size={24} />
+            <ArrowDown size={20} strokeWidth={1.5} />
           </motion.div>
         </motion.div>
       </div>

@@ -8,14 +8,22 @@ export default {
     extend: {
       colors: {
         accent: {
-          DEFAULT: '#3B82F6', // Electric blue
-          light: '#60A5FA',
-          dark: '#2563EB',
+          DEFAULT: '#D4735E', // Terracotta
+          light: '#E8907A',
+          dark: '#B85D48',
         },
+        warm: {
+          cream: '#FAF7F2',
+          beige: '#E8DFD0',
+          taupe: '#C4B5A0',
+          sand: '#B09F8F',
+        },
+        charcoal: '#2B2B2B',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'], // Cinematic serif
+        accent: ['DM Sans', 'system-ui', 'sans-serif'], // For witty callouts
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
