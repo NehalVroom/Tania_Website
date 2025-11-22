@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { ArrowDown } from 'lucide-react'
 import Button from '../components/Button'
+import Hero3D from '../components/Hero3D'
 
 const Hero = () => {
   const wittyTaglines = [
@@ -24,16 +25,21 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-warm-cream px-6">
+      {/* 3D Background */}
+      <Suspense fallback={null}>
+        <Hero3D />
+      </Suspense>
+
       {/* Subtle Indian-inspired pattern overlay */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.03] z-10"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4735E' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v6h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
       />
 
       {/* Warm gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-warm-cream via-warm-cream/50 to-warm-beige/30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-warm-cream via-warm-cream/50 to-warm-beige/30 z-10" />
 
       {/* Floating warm elements */}
       <motion.div
