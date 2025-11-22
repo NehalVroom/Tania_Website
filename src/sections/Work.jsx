@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { useRef, Suspense } from 'react'
 import Section from '../components/Section'
+import FloatingBackground from '../components/FloatingBackground'
 import { ExternalLink, TrendingUp } from 'lucide-react'
 
 const Work = () => {
@@ -66,8 +67,13 @@ const Work = () => {
   ]
 
   return (
-    <Section id="work" className="bg-warm-beige/20">
-      <div className="text-center mb-16">
+    <Section id="work" className="bg-warm-beige/20 relative overflow-hidden">
+      {/* Floating 3D Background */}
+      <Suspense fallback={null}>
+        <FloatingBackground />
+      </Suspense>
+
+      <div className="relative z-10 text-center mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,7 +96,7 @@ const Work = () => {
       </div>
 
       {/* Vertical Scrolling Cards */}
-      <div ref={containerRef} className="relative">
+      <div ref={containerRef} className="relative z-10">
         <div className="space-y-8 max-w-4xl mx-auto">
           {projects.map((project, index) => {
             // Create parallax effect - each card moves at different speed

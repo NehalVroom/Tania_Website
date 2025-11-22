@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
+import { Suspense } from 'react'
 import Section from '../components/Section'
+import About3D from '../components/About3D'
 import { Coffee, Heart, Sparkles } from 'lucide-react'
 
 const About = () => {
@@ -35,30 +37,21 @@ const About = () => {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="relative"
         >
-          <div className="aspect-[4/5] bg-gradient-to-br from-accent/20 via-warm-cream to-warm-taupe/30 rounded-3xl overflow-hidden relative">
+          <div className="aspect-[4/5] bg-gradient-to-br from-accent/10 via-warm-cream/50 to-warm-taupe/20 rounded-3xl overflow-hidden relative">
+            {/* 3D Background */}
+            <Suspense fallback={null}>
+              <About3D />
+            </Suspense>
+
             {/* Subtle Indian-inspired pattern overlay */}
             <div
-              className="absolute inset-0 opacity-10"
+              className="absolute inset-0 opacity-5 z-10"
               style={{
                 backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4735E' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v6h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
               }}
             />
 
-            {/* Floating accent shape */}
-            <motion.div
-              className="absolute top-12 right-12 w-32 h-32 bg-accent/30 rounded-full blur-2xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            />
-
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center z-20">
               <div className="text-center px-8">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -74,7 +67,7 @@ const About = () => {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6, duration: 1 }}
-                  className="font-accent text-lg text-charcoal/60 italic"
+                  className="font-accent text-lg text-charcoal/70 italic drop-shadow-sm"
                 >
                   Content with character,
                   <br />

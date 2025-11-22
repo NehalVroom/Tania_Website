@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import { Suspense } from 'react'
 import Section from '../components/Section'
 import Card from '../components/Card'
+import FloatingBackground from '../components/FloatingBackground'
 import { Pen, LineChart, Sparkles, Share2, Search, Users } from 'lucide-react'
 
 const Services = () => {
@@ -50,8 +52,13 @@ const Services = () => {
   ]
 
   return (
-    <Section id="services" className="bg-warm-cream">
-      <div className="text-center mb-16">
+    <Section id="services" className="bg-warm-cream relative overflow-hidden">
+      {/* Floating 3D Background */}
+      <Suspense fallback={null}>
+        <FloatingBackground />
+      </Suspense>
+
+      <div className="relative z-10 text-center mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,18 +80,25 @@ const Services = () => {
         </motion.p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div className="relative z-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" style={{ perspective: '1000px' }}>
         {services.map((service, index) => {
           const Icon = service.icon
           return (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 40, rotateX: -15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.8 }}
+              whileHover={{
+                rotateY: 5,
+                rotateX: -5,
+                z: 50,
+                transition: { duration: 0.3 }
+              }}
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              <Card tilt={true} className="h-full group cursor-pointer bg-white/80 backdrop-blur-sm">
+              <Card tilt={true} className="h-full group cursor-pointer bg-white/80 backdrop-blur-sm shadow-2xl">
                 {/* Warm accent on hover */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br from-accent/5 to-warm-taupe/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-700"

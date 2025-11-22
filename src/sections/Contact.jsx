@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
 import Section from '../components/Section'
+import FloatingBackground from '../components/FloatingBackground'
 import { Mail, MapPin, Send, Linkedin, FileText, ExternalLink } from 'lucide-react'
 
 const Contact = () => {
@@ -96,8 +97,13 @@ const Contact = () => {
   ]
 
   return (
-    <Section id="contact" className="bg-warm-beige/30">
-      <div className="max-w-6xl mx-auto">
+    <Section id="contact" className="bg-warm-beige/30 relative overflow-hidden">
+      {/* Floating 3D Background */}
+      <Suspense fallback={null}>
+        <FloatingBackground />
+      </Suspense>
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.h2
