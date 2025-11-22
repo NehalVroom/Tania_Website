@@ -66,25 +66,26 @@ const Work = () => {
   ]
 
   return (
-    <Section id="work" className="bg-gray-50">
+    <Section id="work" className="bg-warm-beige/20">
       <div className="text-center mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-5xl md:text-6xl font-bold mb-6 text-gray-900"
+          transition={{ duration: 0.8 }}
+          className="font-display text-5xl md:text-6xl font-bold mb-6 text-charcoal"
         >
-          Selected Work
+          Work That Works
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-xl text-gray-600 max-w-3xl mx-auto"
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="text-xl text-charcoal/60 max-w-3xl mx-auto font-accent"
         >
-          Real projects, measurable results, and proven impact
+          Real projects, measurable results, proven impact
         </motion.p>
       </div>
 
@@ -106,20 +107,20 @@ const Work = () => {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                transition={{ delay: index * 0.1, duration: 0.8 }}
                 className={index % 2 === 0 ? "ml-0 md:ml-12" : "mr-0 md:mr-12"}
               >
                 <motion.div
-                  className="bg-white rounded-2xl p-8 border border-gray-200 group cursor-pointer hover:border-accent transition-colors"
-                  whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                  className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-warm-taupe/20 group cursor-pointer hover:border-accent/40 transition-all duration-700"
+                  whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(212, 115, 94, 0.1)' }}
                 >
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="font-display text-2xl md:text-3xl font-bold text-gray-900 mb-2 group-hover:text-accent transition-colors">
+                      <h3 className="font-display text-2xl md:text-3xl font-bold text-charcoal mb-2 group-hover:text-accent transition-colors duration-700">
                         {project.title}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-charcoal/60 font-accent">
                         {project.company} · {project.type}
                       </p>
                     </div>
@@ -127,26 +128,26 @@ const Work = () => {
                       href={project.link}
                       whileHover={{ scale: 1.1, rotate: 45 }}
                       whileTap={{ scale: 0.9 }}
-                      className="text-gray-400 hover:text-accent transition-colors"
+                      className="text-charcoal/30 hover:text-accent transition-colors duration-700"
                     >
-                      <ExternalLink size={24} />
+                      <ExternalLink size={24} strokeWidth={1.5} />
                     </motion.a>
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-700 leading-relaxed mb-6">
+                  <p className="text-charcoal/70 leading-relaxed mb-6">
                     {project.description}
                   </p>
 
                   {/* Results */}
                   <div className="mb-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <TrendingUp className="text-accent" size={20} />
-                      <h4 className="font-semibold text-gray-900">Key Results</h4>
+                      <TrendingUp className="text-accent" size={20} strokeWidth={1.5} />
+                      <h4 className="font-semibold text-charcoal font-accent">Key Results</h4>
                     </div>
                     <ul className="space-y-2">
                       {project.results.map((result, resultIndex) => (
-                        <li key={resultIndex} className="text-gray-600 text-sm flex items-start">
+                        <li key={resultIndex} className="text-charcoal/60 text-sm flex items-start">
                           <span className="text-accent mr-2">▸</span>
                           {result}
                         </li>
@@ -159,7 +160,7 @@ const Work = () => {
                     {project.tools.map((tool, toolIndex) => (
                       <span
                         key={toolIndex}
-                        className="text-xs px-3 py-1 bg-gray-100 text-gray-700 rounded-full group-hover:bg-accent/10 group-hover:text-accent transition-colors"
+                        className="text-xs px-3 py-1.5 bg-warm-beige/50 text-charcoal/70 rounded-full group-hover:bg-accent/10 group-hover:text-accent transition-colors duration-700"
                       >
                         {tool}
                       </span>
@@ -177,9 +178,10 @@ const Work = () => {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
+        transition={{ delay: 0.4, duration: 1 }}
         className="mt-16 text-center"
       >
-        <p className="text-gray-600 mb-6">Want to see more?</p>
+        <p className="text-charcoal/60 mb-6 font-accent text-lg">Want to see more?</p>
         <div className="flex flex-wrap justify-center gap-4">
           {[
             { name: 'Full Portfolio', link: '#' },
@@ -189,8 +191,8 @@ const Work = () => {
             <motion.a
               key={index}
               href={item.link}
-              className="px-6 py-3 border-2 border-gray-900 text-gray-900 rounded-lg font-medium hover:bg-gray-900 hover:text-white transition-all"
-              whileHover={{ scale: 1.05, rotate: -2 }}
+              className="px-6 py-3 border-2 border-charcoal/20 text-charcoal rounded-full font-medium hover:bg-accent hover:text-white hover:border-accent transition-all duration-700 font-accent"
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               {item.name}

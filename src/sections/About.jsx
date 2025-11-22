@@ -1,124 +1,201 @@
 import { motion } from 'framer-motion'
 import Section from '../components/Section'
-import { Zap, TrendingUp, Award } from 'lucide-react'
+import { Coffee, Heart, Sparkles } from 'lucide-react'
 
 const About = () => {
   const stats = [
     {
-      icon: Zap,
+      icon: Coffee,
       value: '2.5+',
-      label: 'Years Experience',
-      description: 'Leading content operations',
+      label: 'Years Creating',
+      description: 'Stories that drive results',
     },
     {
-      icon: TrendingUp,
+      icon: Heart,
       value: '40%',
-      label: 'Organic Growth',
-      description: 'Average impression increase',
+      label: 'Growth Average',
+      description: 'Organic reach increase',
     },
     {
-      icon: Award,
+      icon: Sparkles,
       value: '1.56K+',
-      label: 'Article Views',
-      description: 'Achieved through SEO',
+      label: 'Engaged Readers',
+      description: 'Through strategic SEO',
     },
   ]
 
   return (
-    <Section id="about" className="bg-white">
-      <div className="grid md:grid-cols-2 gap-16 items-center">
-        {/* Left side - Story */}
+    <Section id="about" className="bg-warm-beige/30">
+      <div className="grid md:grid-cols-2 gap-20 items-center">
+        {/* Left side - Visual placeholder with warm geometric pattern */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          className="relative"
         >
-          <h2 className="font-display text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-            I turn complex ideas into{' '}
-            <span className="text-accent">content that performs</span>
-          </h2>
+          <div className="aspect-[4/5] bg-gradient-to-br from-accent/20 via-warm-cream to-warm-taupe/30 rounded-3xl overflow-hidden relative">
+            {/* Subtle Indian-inspired pattern overlay */}
+            <div
+              className="absolute inset-0 opacity-10"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4735E' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v6h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              }}
+            />
 
-          <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
-            <p>
-              Most content managers just push publish. I architect content ecosystems
-              that drive real engagement and measurable growth.
-            </p>
+            {/* Floating accent shape */}
+            <motion.div
+              className="absolute top-12 right-12 w-32 h-32 bg-accent/30 rounded-full blur-2xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
 
-            <p>
-              With a background in English Literature and a deep love for storytelling,
-              I blend human creativity with AI efficiency to create content that resonates
-              across digital, social, and conversational platforms.
-            </p>
-
-            <p>
-              From managing editorial calendars to reviewing AI-generated copy and
-              optimizing for SEO, I ensure every piece of content serves a purpose
-              and drives results.
-            </p>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center px-8">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4, duration: 1 }}
+                  className="font-display text-6xl md:text-7xl text-charcoal/10 mb-4"
+                >
+                  "
+                </motion.div>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, duration: 1 }}
+                  className="font-accent text-lg text-charcoal/60 italic"
+                >
+                  Content with character,
+                  <br />
+                  strategy with soul
+                </motion.p>
+              </div>
+            </div>
           </div>
 
-          {/* Education highlight */}
+          {/* Decorative element */}
           <motion.div
-            className="mt-8 p-6 bg-gray-50 rounded-xl border border-gray-200"
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            <p className="text-sm text-gray-500 uppercase tracking-wider mb-2">Education</p>
-            <p className="text-gray-900 font-semibold">MA English Literature (Pursuing)</p>
-            <p className="text-gray-600">Jamia Islamia University, DU</p>
-            <p className="text-gray-600 text-sm mt-2">
-              + Meta Social Media Marketing Certificate
-            </p>
-          </motion.div>
+            className="absolute -bottom-6 -right-6 w-24 h-24 bg-accent rounded-full opacity-20 blur-xl"
+            animate={{
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
         </motion.div>
 
-        {/* Right side - Stats */}
+        {/* Right side - Story */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6"
+          transition={{ duration: 1, ease: 'easeOut' }}
         >
-          {stats.map((stat, index) => {
-            const Icon = stat.icon
-            return (
-              <motion.div
-                key={index}
-                className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 hover:border-accent transition-colors"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2, duration: 0.5 }}
-                whileHover={{ scale: 1.03, rotate: -1 }}
-              >
-                <div className="flex items-start gap-4">
-                  <motion.div
-                    className="bg-accent/10 p-3 rounded-xl"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <Icon className="text-accent" size={28} />
-                  </motion.div>
+          <motion.h2
+            className="font-display text-4xl md:text-5xl font-bold mb-6 text-charcoal leading-tight"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            The story behind
+            <br />
+            <span className="text-accent">the storyteller</span>
+          </motion.h2>
 
-                  <div className="flex-1">
-                    <motion.h3
-                      className="font-display text-4xl font-bold text-gray-900 mb-1"
-                      initial={{ scale: 1 }}
-                      whileInView={{ scale: [1, 1.1, 1] }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.2 + 0.3, duration: 0.5 }}
-                    >
-                      {stat.value}
-                    </motion.h3>
-                    <p className="text-gray-900 font-semibold mb-1">{stat.label}</p>
-                    <p className="text-gray-600 text-sm">{stat.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
+          <motion.div
+            className="space-y-5 text-charcoal/70 text-base md:text-lg leading-relaxed"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4, duration: 1 }}
+          >
+            <p>
+              I don't just write content—I craft narratives that connect.
+              With a foundation in English Literature and a passion for strategic storytelling,
+              I bring both creativity and data-driven precision to every project.
+            </p>
+
+            <p>
+              My approach? Think of me as a translator between your brand's vision and
+              your audience's needs. Whether it's blockchain complexity or B2B LinkedIn
+              strategy, I make the complex feel conversational.
+            </p>
+
+            <p>
+              From managing editorial calendars to optimizing for SEO, I ensure every
+              piece of content serves a purpose. Because good content doesn't just
+              perform—it resonates.
+            </p>
+          </motion.div>
+
+          {/* Stats - More elegant presentation */}
+          <motion.div
+            className="mt-10 grid grid-cols-3 gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6, duration: 1 }}
+          >
+            {stats.map((stat, index) => {
+              const Icon = stat.icon
+              return (
+                <motion.div
+                  key={index}
+                  className="text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.8 + index * 0.1, duration: 0.8 }}
+                  whileHover={{ y: -5 }}
+                >
+                  <Icon className="text-accent mx-auto mb-3" size={24} strokeWidth={1.5} />
+                  <h3 className="font-display text-3xl font-bold text-charcoal mb-1">
+                    {stat.value}
+                  </h3>
+                  <p className="text-sm font-accent font-medium text-charcoal/80 mb-1">
+                    {stat.label}
+                  </p>
+                  <p className="text-xs text-charcoal/50">{stat.description}</p>
+                </motion.div>
+              )
+            })}
+          </motion.div>
+
+          {/* Education - Minimal card */}
+          <motion.div
+            className="mt-10 p-6 bg-warm-cream rounded-2xl border border-warm-taupe/20"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1, duration: 1 }}
+            whileHover={{ scale: 1.02, borderColor: 'rgba(212, 115, 94, 0.3)' }}
+          >
+            <p className="text-xs text-charcoal/50 uppercase tracking-widest mb-3 font-accent">
+              Education & Credentials
+            </p>
+            <p className="text-charcoal font-semibold font-accent mb-1">
+              MA English Literature (Pursuing)
+            </p>
+            <p className="text-charcoal/60 text-sm">Jamia Islamia University, DU</p>
+            <p className="text-charcoal/60 text-sm mt-3">
+              + Meta Social Media Marketing Certificate
+            </p>
+          </motion.div>
         </motion.div>
       </div>
     </Section>

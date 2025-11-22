@@ -96,7 +96,7 @@ const Contact = () => {
   ]
 
   return (
-    <Section id="contact" className="bg-gray-50">
+    <Section id="contact" className="bg-warm-beige/30">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -104,21 +104,22 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-5xl md:text-6xl font-bold mb-6 text-gray-900"
+            transition={{ duration: 0.8 }}
+            className="font-display text-5xl md:text-6xl font-bold mb-6 text-charcoal"
           >
-            Let's Create Something{' '}
-            <span className="text-accent">Amazing</span>
+            Let's Talk{' '}
+            <span className="text-accent">Strategy</span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-xl text-charcoal/60 max-w-3xl mx-auto font-accent"
           >
-            Have a project in mind? Looking for a content strategist?
-            Let's discuss how I can help you achieve your goals.
+            Have a project in mind? Looking for a content partner?
+            Let's discuss how we can work together.
           </motion.p>
         </div>
 
@@ -128,10 +129,11 @@ const Contact = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
+              className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-lg border border-warm-taupe/20"
               name="contact"
               method="POST"
               data-netlify="true"
@@ -140,52 +142,52 @@ const Contact = () => {
 
               {/* Name */}
               <div className="mb-6">
-                <label htmlFor="name" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="name" className="block text-charcoal font-medium mb-2 font-accent">
                   Your Name *
                 </label>
                 <motion.input
-                  whileFocus={{ scale: 1.01 }}
+                  whileFocus={{ scale: 1.005 }}
                   type="text"
                   id="name"
                   name="name"
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-warm-taupe/30 rounded-2xl focus:border-accent focus:outline-none transition-all duration-700 bg-warm-cream/50"
                   placeholder="John Doe"
                 />
               </div>
 
               {/* Email */}
               <div className="mb-6">
-                <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="email" className="block text-charcoal font-medium mb-2 font-accent">
                   Email Address *
                 </label>
                 <motion.input
-                  whileFocus={{ scale: 1.01 }}
+                  whileFocus={{ scale: 1.005 }}
                   type="email"
                   id="email"
                   name="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-warm-taupe/30 rounded-2xl focus:border-accent focus:outline-none transition-all duration-700 bg-warm-cream/50"
                   placeholder="john@example.com"
                 />
               </div>
 
               {/* Budget */}
               <div className="mb-6">
-                <label htmlFor="budget" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="budget" className="block text-charcoal font-medium mb-2 font-accent">
                   Project Budget
                 </label>
                 <motion.select
-                  whileFocus={{ scale: 1.01 }}
+                  whileFocus={{ scale: 1.005 }}
                   id="budget"
                   name="budget"
                   value={formData.budget}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition-colors"
+                  className="w-full px-4 py-3 border-2 border-warm-taupe/30 rounded-2xl focus:border-accent focus:outline-none transition-all duration-700 bg-warm-cream/50"
                 >
                   <option value="">Select a range</option>
                   {budgetRanges.map((range, index) => (
@@ -198,18 +200,18 @@ const Contact = () => {
 
               {/* Message */}
               <div className="mb-6">
-                <label htmlFor="message" className="block text-gray-700 font-medium mb-2">
+                <label htmlFor="message" className="block text-charcoal font-medium mb-2 font-accent">
                   Your Message *
                 </label>
                 <motion.textarea
-                  whileFocus={{ scale: 1.01 }}
+                  whileFocus={{ scale: 1.005 }}
                   id="message"
                   name="message"
                   required
                   value={formData.message}
                   onChange={handleChange}
                   rows="5"
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-accent focus:outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 border-2 border-warm-taupe/30 rounded-2xl focus:border-accent focus:outline-none transition-all duration-700 resize-none bg-warm-cream/50"
                   placeholder="Tell me about your project..."
                 />
               </div>
@@ -218,8 +220,8 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-accent text-white py-4 rounded-lg font-medium hover:bg-accent-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                className="w-full bg-accent text-white py-4 rounded-full font-medium hover:bg-accent-dark transition-all duration-700 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg font-accent"
+                whileHover={{ scale: isSubmitting ? 1 : 1.02, y: isSubmitting ? 0 : -2 }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               >
                 {isSubmitting ? (
@@ -268,12 +270,13 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="space-y-8"
           >
             {/* Contact Info */}
             <div>
-              <h3 className="font-display text-2xl font-bold mb-6 text-gray-900">
-                Contact Information
+              <h3 className="font-display text-2xl font-bold mb-6 text-charcoal">
+                Reach Out
               </h3>
 
               <div className="space-y-4">
@@ -285,16 +288,16 @@ const Contact = () => {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-200 hover:border-accent transition-colors group"
+                      transition={{ delay: index * 0.15, duration: 0.8 }}
+                      className="flex items-start gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-2xl border border-warm-taupe/20 hover:border-accent/40 transition-all duration-700 group"
                       whileHover={{ x: 8 }}
                     >
-                      <div className="bg-accent/10 p-3 rounded-lg group-hover:bg-accent/20 transition-colors">
-                        <Icon className="text-accent" size={24} />
+                      <div className="bg-accent/10 p-3 rounded-xl group-hover:bg-accent/20 transition-colors duration-700">
+                        <Icon className="text-accent" size={24} strokeWidth={1.5} />
                       </div>
                       <div>
-                        <p className="text-gray-500 text-sm mb-1">{info.label}</p>
-                        <p className="text-gray-900 font-medium">{info.value}</p>
+                        <p className="text-charcoal/50 text-sm mb-1 font-accent">{info.label}</p>
+                        <p className="text-charcoal font-medium">{info.value}</p>
                       </div>
                     </motion.div>
                   )
@@ -312,8 +315,8 @@ const Contact = () => {
 
             {/* Social Links */}
             <div>
-              <h3 className="font-display text-2xl font-bold mb-6 text-gray-900">
-                Connect With Me
+              <h3 className="font-display text-2xl font-bold mb-6 text-charcoal">
+                Let's Connect
               </h3>
 
               <div className="flex gap-4">
@@ -326,13 +329,13 @@ const Contact = () => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.1 }}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ delay: index * 0.15, duration: 0.6 }}
+                      whileHover={{ scale: 1.1, y: -3 }}
                       whileTap={{ scale: 0.9 }}
-                      className={`bg-gray-900 text-white p-4 rounded-xl ${social.color} transition-colors`}
+                      className="bg-charcoal text-warm-cream p-4 rounded-xl hover:bg-accent transition-all duration-700 shadow-lg"
                       aria-label={social.label}
                     >
-                      <Icon size={24} />
+                      <Icon size={24} strokeWidth={1.5} />
                     </motion.a>
                   )
                 })}
@@ -344,15 +347,16 @@ const Contact = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-accent to-accent-dark text-white p-8 rounded-2xl"
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="bg-gradient-to-br from-accent to-accent-dark text-white p-8 rounded-3xl shadow-lg"
             >
               <h4 className="font-display text-2xl font-bold mb-4">
                 Working Hours
               </h4>
-              <p className="text-white/90 mb-2">
+              <p className="text-white/90 mb-2 font-accent">
                 Monday - Friday: 9:00 AM - 6:00 PM IST
               </p>
-              <p className="text-white/90 text-sm">
+              <p className="text-white/80 text-sm font-accent">
                 I typically respond within 24 hours during business days
               </p>
             </motion.div>

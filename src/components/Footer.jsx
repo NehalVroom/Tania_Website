@@ -10,18 +10,27 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-gray-900 text-white py-12 px-6">
+    <footer className="bg-charcoal text-warm-cream py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Left side */}
           <div className="text-center md:text-left">
-            <p className="text-gray-400 text-sm">
-              © 2025 Tania. Built with React + AI tools
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="font-display text-3xl font-bold mb-2 text-warm-cream"
+            >
+              Tania
+            </motion.h3>
+            <p className="text-warm-cream/60 text-sm font-accent">
+              © 2025 · Content with character, strategy with soul
             </p>
           </div>
 
           {/* Social links */}
-          <div className="flex gap-6">
+          <div className="flex gap-4">
             {socialLinks.map((link, index) => {
               const Icon = link.icon
               return (
@@ -29,11 +38,15 @@ const Footer = () => {
                   key={index}
                   href={link.href}
                   aria-label={link.label}
-                  className="text-gray-400 hover:text-white transition-colors"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  className="text-warm-cream/60 hover:text-accent transition-all duration-700 bg-warm-cream/5 p-3 rounded-xl hover:bg-accent/10"
+                  whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <Icon size={24} />
+                  <Icon size={20} strokeWidth={1.5} />
                 </motion.a>
               )
             })}
@@ -41,11 +54,17 @@ const Footer = () => {
         </div>
 
         {/* Additional info */}
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-500 text-sm">
-            Content & Engagement Manager | AI-Powered Strategy | New Delhi, India
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4, duration: 1 }}
+          className="mt-10 pt-8 border-t border-warm-cream/10 text-center"
+        >
+          <p className="text-warm-cream/50 text-sm font-accent">
+            Content & Engagement Manager • Strategic Storytelling • New Delhi, India
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   )
