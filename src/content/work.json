@@ -1,46 +1,77 @@
 {
   "projects": [
     {
-      "title": "Blockchain Content Strategy",
-      "company": "Pure Software",
-      "type": "Content Analyst",
-      "description": "Developed compelling narratives and visual storytelling to simplify complex blockchain concepts.",
+      "title": "Social media manager",
+      "company": "Growth Asia (Singapore)",
+      "type": "Content & Engagement Manager",
+      "description": "I build social media systems that don’t just look good—they work: strategy, calendars, campaigns, and measurable growth.\n\nEvery brand I work with gets a tailored playbook rooted in insight, storytelling, and platform psychology.\n\nFrom content planning to execution, I turn chaos into a clear, scalable structure that teams can actually use.\n\nMy portfolio reflects real results: improved engagement, stronger brand recall, and content that converts.\n\nThis is not just social media management—it’s brand-building through consistency, creativity, and data-backed decisions.",
       "results": [
         "30-40% increase in organic impressions",
         "50% faster content turnaround",
         "Improved readability & semantic depth"
       ],
-      "tools": ["ChatGPT", "Notion AI", "SurferSEO", "Frase", "Jasper AI"],
+      "tools": [
+        "ChatGPT",
+        "Notion AI",
+        "SurferSEO",
+        "Frase",
+        "Jasper AI"
+      ],
       "size": "large",
-      "link": "#"
+      "link": "# https://www.canva.com/design/DAG3FwDGPgA/VvGceGR0H-flRpx34y1kqw/view?utm_content=DAG3FwDGPgA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha9b5f7805d"
     },
     {
-      "title": "B2B LinkedIn Content",
-      "company": "Growth Asian",
-      "type": "Content & Engagement Manager",
-      "description": "Built strategic posting calendars and repurposed long-form content for LinkedIn optimization.",
+      "title": "Marketing & Content Strategist ",
+      "company": "TCG MEDIA",
+      "type": "Content Strategist",
+      "description": "I design content systems that align brand goals with audience behavior—scalable, data-led, and ROI-driven.\n\nWith five years in strategy, I turn insights into predictable content outcomes that drive growth, not noise.\n\nI build long-term content frameworks that streamline workflows, strengthen storytelling, and improve efficiency.\n\nMy experience helps brands move from inconsistent posting to intentional, measurable content ecosystems.\n\nI translate business objectives into content roadmaps that deliver clarity, consistency, and performance.\nBuilt strategic posting calendars and repurposed long-form content for LinkedIn optimization.",
       "results": [
         "Increased engagement metrics",
         "On-ground event coverage",
         "Platform-native formats"
       ],
-      "tools": ["LinkedIn Analytics", "Content Calendar", "B2B Strategy"],
+      "tools": [
+        "LinkedIn Analytics",
+        "Content Calendar",
+        "B2B Strategy"
+      ],
       "size": "medium",
-      "link": "#"
+      "link": "#https://www.canva.com/design/DAGMrVoDo6I/9KIsu6b0aIjMgWONgeyYoA/view?utm_content=DAGMrVoDo6I&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h912a85c966"
     },
     {
-      "title": "EdTech SEO Content",
-      "company": "upGrad",
-      "type": "SEO Associate",
+      "title": "Ed-tech industry",
+      "company": "UpGrad",
+      "type": "SEO CONTENT ASSOCIATE",
       "description": "Generated articles achieving 1.56K+ views through SEO optimization and social distribution.",
       "results": [
         "1.56K+ article views",
         "Long-form content & landing pages",
         "Cross-functional collaboration"
       ],
-      "tools": ["ChatGPT", "Jasper AI", "HubSpot AI", "Gemini", "Grok", "Canva AI"],
+      "tools": [
+        "ChatGPT",
+        "Jasper AI",
+        "HubSpot AI",
+        "Gemini",
+        "Grok",
+        "Canva AI"
+      ],
       "size": "medium",
-      "link": "#"
+      "link": "#https://www.upgrad.com/study-abroad/usa/"
+    },
+    {
+      "link": "https://www.behance.net/gallery/237471051/Ads-for-myntra",
+      "size": "large",
+      "tools": [
+        "Canva"
+      ],
+      "results": [
+        "Project"
+      ],
+      "title": "COPYWRITER",
+      "company": "MYNTRA",
+      "description": "• Myntra’s Big Billion Days buzz with a sharp, trend-led social strategy built for scale and speed.\n• Engineered platform-specific content that boosted click-throughs.\n• Designed real-time engagement workflows to capitalize on peak traffic and micro-moments during the sale.\n• Delivered a cohesive campaign that blended performance, storytelling, and brand excitement.",
+      "type": "MYNTRA CONTENT & CAMPAIGN CREATOR"
     }
   ]
 }
