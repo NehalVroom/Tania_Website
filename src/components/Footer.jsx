@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion'
 import { Github, Linkedin, Mail, FileText } from 'lucide-react'
+// Import CMS data
+import profileData from '../content/profile.json'
 
 const Footer = () => {
+  // Use CMS data for social links
   const socialLinks = [
-    { icon: Mail, href: 'mailto:taniasay12345sangat@gmail.com', label: 'Email' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Github, href: '#', label: 'Behance' },
-    { icon: FileText, href: '#', label: 'Blog' },
+    { icon: Mail, href: `mailto:${profileData.email || 'taniasay12345sangat@gmail.com'}`, label: 'Email' },
+    { icon: Linkedin, href: profileData.linkedin || '#', label: 'LinkedIn' },
+    { icon: Github, href: profileData.behance || '#', label: 'Behance' },
+    { icon: FileText, href: profileData.blog || '#', label: 'Blog' },
   ]
 
   return (
@@ -22,7 +25,7 @@ const Footer = () => {
               transition={{ duration: 0.8 }}
               className="font-display text-3xl font-bold mb-2 text-warm-cream"
             >
-              Tania
+              {profileData.name || 'Tania'}
             </motion.h3>
             <p className="text-warm-cream/60 text-sm font-accent">
               © 2025 · Content with character, strategy with soul
@@ -62,7 +65,7 @@ const Footer = () => {
           className="mt-10 pt-8 border-t border-warm-cream/10 text-center"
         >
           <p className="text-warm-cream/50 text-sm font-accent">
-            Content & Engagement Manager • Strategic Storytelling • New Delhi, India
+            {profileData.title || 'Content & Engagement Manager'} • {profileData.location || 'New Delhi, India'}
           </p>
         </motion.div>
       </div>

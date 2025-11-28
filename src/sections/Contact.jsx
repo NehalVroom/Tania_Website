@@ -3,6 +3,8 @@ import { useState, Suspense } from 'react'
 import Section from '../components/Section'
 import FloatingBackground from '../components/FloatingBackground'
 import { Mail, MapPin, Send, Linkedin, FileText, ExternalLink } from 'lucide-react'
+// Import CMS data
+import profileData from '../content/profile.json'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -52,38 +54,40 @@ const Contact = () => {
     }
   }
 
+  // Use CMS data for contact info
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'taniasay12345sangat@gmail.com',
-      link: 'mailto:taniasay12345sangat@gmail.com',
+      value: profileData.email || 'taniasay12345sangat@gmail.com',
+      link: `mailto:${profileData.email || 'taniasay12345sangat@gmail.com'}`,
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'New Delhi, India',
+      value: profileData.location || 'New Delhi, India',
       link: null,
     },
   ]
 
+  // Use CMS data for social links
   const socialLinks = [
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      link: '#',
+      link: profileData.linkedin || '#',
       color: 'hover:bg-blue-600',
     },
     {
       icon: FileText,
       label: 'Behance',
-      link: '#',
+      link: profileData.behance || '#',
       color: 'hover:bg-purple-600',
     },
     {
       icon: ExternalLink,
       label: 'Blog',
-      link: '#',
+      link: profileData.blog || '#',
       color: 'hover:bg-gray-600',
     },
   ]

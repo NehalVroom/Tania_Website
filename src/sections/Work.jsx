@@ -3,6 +3,8 @@ import { useRef, Suspense } from 'react'
 import Section from '../components/Section'
 import FloatingBackground from '../components/FloatingBackground'
 import { ExternalLink, TrendingUp } from 'lucide-react'
+// Import CMS data
+import workData from '../content/work.json'
 
 const Work = () => {
   const containerRef = useRef(null)
@@ -11,60 +13,8 @@ const Work = () => {
     offset: ["start end", "end start"]
   })
 
-  const projects = [
-    {
-      title: 'Blockchain Content Strategy',
-      company: 'Pure Software',
-      type: 'Content Analyst',
-      description: 'Developed compelling narratives and visual storytelling to simplify complex blockchain concepts.',
-      results: [
-        '30-40% increase in organic impressions',
-        '50% faster content turnaround',
-        'Improved readability & semantic depth',
-      ],
-      tools: ['ChatGPT', 'Notion AI', 'SurferSEO', 'Frase', 'Jasper AI'],
-      link: '#',
-    },
-    {
-      title: 'B2B LinkedIn Content',
-      company: 'Growth Asian',
-      type: 'Content & Engagement Manager',
-      description: 'Built strategic posting calendars and repurposed long-form content for LinkedIn optimization.',
-      results: [
-        'Increased engagement metrics',
-        'On-ground event coverage',
-        'Platform-native formats',
-      ],
-      tools: ['LinkedIn Analytics', 'Content Calendar', 'B2B Strategy'],
-      link: '#',
-    },
-    {
-      title: 'EdTech SEO Content',
-      company: 'upGrad',
-      type: 'SEO Associate',
-      description: 'Generated articles achieving 1.56K+ views through SEO optimization and social distribution.',
-      results: [
-        '1.56K+ article views',
-        'Long-form content & landing pages',
-        'Cross-functional collaboration',
-      ],
-      tools: ['ChatGPT', 'Jasper AI', 'HubSpot AI', 'Gemini', 'Grok', 'Canva AI'],
-      link: '#',
-    },
-    {
-      title: 'Content Portfolio',
-      company: 'Personal Projects',
-      type: 'Showcase',
-      description: 'Collection of social media campaigns, UGC content, and creative writing samples.',
-      results: [
-        'Behance portfolio',
-        'Blog articles',
-        'Social media campaigns',
-      ],
-      tools: ['Canva', 'Creative Writing'],
-      link: '#',
-    },
-  ]
+  // Use projects from CMS - updates automatically when CMS changes
+  const projects = workData.projects || []
 
   return (
     <Section id="work" className="bg-warm-beige/20 relative overflow-hidden">
